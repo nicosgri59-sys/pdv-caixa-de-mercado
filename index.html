@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PDV Caixa de Mercado</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>PDV Caixa de Mercado</h1>
+        <p>Registro rápido de vendas para pequenos comércios.</p>
+      </div>
+      <button id="finalizar" class="cta">Finalizar venda</button>
+    </header>
+
+    <main class="grid">
+      <section class="card">
+        <h2>Buscar produto</h2>
+        <form id="produto-form">
+          <label for="codigo">Código / Nome</label>
+          <input id="codigo" name="codigo" type="text" placeholder="Ex: 789123" autocomplete="off" />
+
+          <label for="quantidade">Quantidade</label>
+          <input id="quantidade" name="quantidade" type="number" min="1" value="1" />
+
+          <button type="submit">Adicionar</button>
+        </form>
+
+        <div class="quick-list">
+          <h3>Mais vendidos</h3>
+          <div class="chips">
+            <button data-produto="Arroz 5kg" data-preco="29.9">Arroz 5kg</button>
+            <button data-produto="Feijão 1kg" data-preco="9.5">Feijão 1kg</button>
+            <button data-produto="Café 500g" data-preco="14.9">Café 500g</button>
+            <button data-produto="Leite 1L" data-preco="4.8">Leite 1L</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Carrinho</h2>
+        <ul id="carrinho" class="lista"></ul>
+        <div class="totais">
+          <div>
+            <span>Subtotal</span>
+            <strong id="subtotal">R$ 0,00</strong>
+          </div>
+          <div>
+            <span>Descontos</span>
+            <strong id="descontos">R$ 0,00</strong>
+          </div>
+          <div class="total">
+            <span>Total</span>
+            <strong id="total">R$ 0,00</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Pagamento</h2>
+        <div class="pagamento">
+          <label for="metodo">Método</label>
+          <select id="metodo">
+            <option value="pix">Pix</option>
+            <option value="credito">Crédito</option>
+            <option value="debito">Débito</option>
+            <option value="dinheiro">Dinheiro</option>
+          </select>
+
+          <label for="desconto">Desconto (R$)</label>
+          <input id="desconto" type="number" min="0" step="0.01" value="0" />
+
+          <label for="recebido">Valor recebido (R$)</label>
+          <input id="recebido" type="number" min="0" step="0.01" value="0" />
+
+          <div class="troco">
+            <span>Troco</span>
+            <strong id="troco">R$ 0,00</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="card nota">
+        <h2>Resumo da venda</h2>
+        <div class="nota-detalhe">
+          <p><strong>Cliente:</strong> Consumidor final</p>
+          <p><strong>Operador:</strong> Caixa 01</p>
+          <p><strong>Data:</strong> <span id="data"></span></p>
+        </div>
+        <ol id="resumo" class="resumo"></ol>
+        <p class="nota-total">Total a pagar: <strong id="nota-total">R$ 0,00</strong></p>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
